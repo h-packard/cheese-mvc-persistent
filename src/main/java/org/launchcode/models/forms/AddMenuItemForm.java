@@ -5,7 +5,7 @@ import org.launchcode.models.Menu;
 
 import javax.validation.constraints.NotNull;
 
-//don't need entity annotation as not a persistant class
+//don't need entity annotation as not a persistent class
 public class AddMenuItemForm {
 
     private Menu menu;
@@ -16,6 +16,13 @@ public class AddMenuItemForm {
 
     @NotNull
     private int cheeseId;
+
+    public AddMenuItemForm() { }
+
+    public AddMenuItemForm(Menu menu, Iterable<Cheese> cheeses) {
+        this.menu = menu;
+        this.cheeses = cheeses;
+    }
 
     public Menu getMenu() {
         return menu;
@@ -37,15 +44,18 @@ public class AddMenuItemForm {
         return menuId;
     }
 
+    public void setMenuId(int menuId) {
+        this.menuId = menuId;
+    }
+
+
     public int getCheeseId() {
         return cheeseId;
     }
 
-
-    public AddMenuItemForm(Menu menu, Iterable<Cheese> cheeses) {
-        this.menu = menu;
-        this.cheeses = cheeses;
+    public void setCheeseId(int cheeseId) {
+        this.cheeseId = cheeseId;
     }
 
-    public AddMenuItemForm() { }
+
 }
